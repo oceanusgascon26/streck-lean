@@ -1,0 +1,52 @@
+<!--
+Project CLAUDE.md template. Copy to the repo root as CLAUDE.md, fill in, delete unused lines.
+Budget: this file loads into every session. Keep it at or under 60 lines (the docs target
+under 200 lines per CLAUDE.md; we aim far lower). Facts only: commands, layout, rules.
+Procedures belong in a skill; rules for one area belong in .claude/rules/<topic>.md with a
+paths: frontmatter list so they load only when Claude reads matching files.
+@imports keep the file organized but do NOT save context: imported files load at launch too.
+Block HTML comments like this one are stripped before loading, so they cost no tokens.
+Check the result with scripts/context-audit.ps1 and /context.
+-->
+# <Project name>
+
+<One sentence: what this repo is and who uses it.>
+
+## Build and test
+- Build: `<command>`
+- Test all: `<command>`
+- Test one: `<command> <path or filter>`
+- Lint or format: `<command>`
+- Run locally: `<command>`
+
+## Layout
+- `<dir>/`: <what lives here>
+- `<dir>/`: <what lives here>
+- Generated, do not read or edit: `bin/`, `obj/`, `dist/`, `node_modules/`
+
+## Conventions
+- <Language and framework versions, for example .NET 8, Node 20>
+- <Naming or structure rule that is not obvious from the code>
+- <Error handling or logging rule>
+- <Branch and commit message rule>
+
+## Rules
+- Never commit secrets. Connection strings and keys come from <user secrets, env, Key Vault>.
+- <Hard rule, for example: do not change files under migrations/ without asking>
+
+## Working style
+- Lead with the answer. No preamble, no recap of what you just did.
+- Read targeted line ranges, not whole files. Delegate sweeps of more than about 3 files
+  to the code-search subagent; send long build or test output to log-summarizer.
+- Final reports list changed file paths and anything not verified.
+
+## More context (loads only when needed)
+<!-- Path-scoped rules: .claude/rules/<topic>.md starting with
+---
+paths:
+  - "src/Api/**/*.cs"
+---
+Uncomment an @import only for a file every session truly needs. -->
+- Area rules: `.claude/rules/` (path-scoped)
+- Architecture notes: `docs/architecture.md` (read on demand, not imported)
+<!-- @docs/team-standards.md -->

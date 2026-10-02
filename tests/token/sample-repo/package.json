@@ -1,0 +1,11 @@
+{
+  "name": "specimen-tracker",
+  "version": "1.4.2",
+  "description": "Tracks blood collection tube specimens, stability windows, and label printing.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "node test/run.js"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}

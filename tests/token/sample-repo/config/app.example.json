@@ -1,0 +1,14 @@
+{
+  "environment": "example",
+  "retentionDays": 90,
+  "batchSize": 50,
+  "labelPrinter": {
+    "host": "printer.example.local",
+    "port": 515,
+    "timeoutMs": 10000
+  },
+  "queue": {
+    "maxRetries": 5,
+    "baseDelayMs": 1000
+  }
+}

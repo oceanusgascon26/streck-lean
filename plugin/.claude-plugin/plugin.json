@@ -1,0 +1,9 @@
+{
+  "name": "streck-lean",
+  "version": "0.1.0",
+  "description": "Token and context discipline for Streck developers on Claude Code: the lean-code and lean-chat skills plus three read-only Haiku subagents (code-search, docs-lookup, log-summarizer).",
+  "author": {
+    "name": "Streck IT"
+  },
+  "keywords": ["streck", "tokens", "cost", "context", "model-routing", "subagents", "haiku"]
+}

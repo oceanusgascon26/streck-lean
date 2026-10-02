@@ -1,0 +1,17 @@
+{
+  "name": "streck-plugins",
+  "description": "Streck internal Claude Code plugin marketplace",
+  "owner": {
+    "name": "Streck IT"
+  },
+  "plugins": [
+    {
+      "name": "streck-lean",
+      "description": "Token and context discipline for Streck developers on Claude Code: lean-code and lean-chat skills plus three read-only Haiku subagents.",
+      "source": "./plugin",
+      "author": {
+        "name": "Streck IT"
+      }
+    }
+  ]
+}

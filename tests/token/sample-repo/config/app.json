@@ -1,0 +1,14 @@
+{
+  "environment": "production",
+  "retentionDays": 30,
+  "batchSize": 250,
+  "labelPrinter": {
+    "host": "10.20.30.40",
+    "port": 9100,
+    "timeoutMs": 4000
+  },
+  "queue": {
+    "maxRetries": 3,
+    "baseDelayMs": 200
+  }
+}

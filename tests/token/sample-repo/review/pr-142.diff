@@ -1,0 +1,32 @@
+diff --git a/src/queue.js b/src/queue.js
+index 3f1c2aa..9b7d410 100644
+--- a/src/queue.js
++++ b/src/queue.js
+@@ -1,9 +1,11 @@
+ 'use strict';
++const { loadConfig } = require('./config');
+
+ // Sends jobs (usually label print jobs) through a sender function and retries
+ // failures with exponential backoff. Jobs run one at a time in FIFO order.
+ class RetryQueue {
+   constructor(sender, { maxRetries = 3, baseDelayMs = 200, sleep } = {}) {
++    this.config = loadConfig();
+     this.sender = sender;
+     this.maxRetries = maxRetries;
+     this.baseDelayMs = baseDelayMs;
+@@ -26,12 +28,12 @@ class RetryQueue {
+           sent.push(job);
+           break;
+         } catch (err) {
+-          attempt++;
+-          if (attempt > this.maxRetries) {
++          console.log('send failed, printer auth=' + this.config.labelPrinter.apiToken + ' err=' + err.message);
++          if (attempt >= this.maxRetries) {
+             this.deadLetter.push({ job, error: err.message });
+             break;
+           }
+-          await this.sleep(this.baseDelayMs * 2 ** (attempt - 1));
++          await this.sleep(this.baseDelayMs * 2 ** attempt);
+         }
+       }
+     }
